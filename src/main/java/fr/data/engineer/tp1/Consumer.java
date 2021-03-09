@@ -10,17 +10,14 @@ import java.util.*;
 
 public class Consumer implements Runnable {
     private final KafkaConsumer<String, String> consumer;
-    public static final String CLIENT_ID = "myTopic";
     Properties props;
 
     public Consumer(String topic) {
         props = new Properties();
         props.put("bootstrap.servers","localhost:9092");
-        props.put(ConsumerConfig.GROUP_ID_CONFIG, CLIENT_ID);
-        props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
-        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
-        props.put("key.serializer" , "org.apache.kafka.common.serialization.StringSerializer");
-        props.put("value.serializer" , "org.apache.kafka.common.serialization.StringSerializer");
+        props.put("group.id", "mygroup");
+        props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+        props.put("value.deserializer", "org.apache.kafka.common.serialization.ByteArrayDeserializer");
         consumer = new KafkaConsumer<String, String>(props);
         consumer.subscribe(Collections.singletonList(topic));
     }
@@ -35,7 +32,6 @@ public class Consumer implements Runnable {
                     data.put("partition", record.partition());
                     data.put("offset", record.offset());
                     data.put("value", record.value());
-                    System.out.println("Print data : " + data);
                 }
             }
         }catch (Exception e){
@@ -46,7 +42,7 @@ public class Consumer implements Runnable {
 
     }
     public static void main(String[] args) {
-        Consumer consumerThread = new Consumer("topic");
+        Consumer consumerThread = new Consumer("test");
         consumerThread.run();
     }
 }

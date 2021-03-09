@@ -4,6 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+
     <groupId>org.example</groupId>
     <artifactId>data_Engine</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -12,7 +13,7 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
-    <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
+
     <dependencies>
         <dependency>
             <groupId>com.github.javafaker</groupId>
@@ -21,13 +22,8 @@
         </dependency>
         <dependency>
             <groupId>org.apache.kafka</groupId>
-            <artifactId>kafka_2.9.2</artifactId>
+            <artifactId>kafka_2.11</artifactId>
             <version>0.8.2.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.kafka</groupId>
-            <artifactId>kafka-clients</artifactId>
-            <version>0.9.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.kafka</groupId>
@@ -35,17 +31,10 @@
             <version>2.4.0</version>
         </dependency>
         <dependency>
-            <groupId>postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>9.1-901-1.jdbc4</version>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>2.4.0</version>
         </dependency>
-
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.18</version>
-        </dependency>
-
 
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
@@ -53,32 +42,24 @@
             <version>1.9.13</version>
         </dependency>
 
-        <!-- Scala dependence -->
         <dependency>
             <groupId>com.metamx</groupId>
             <artifactId>scala-util_2.12</artifactId>
             <version>1.14.1</version>
         </dependency>
 
-        <!-- Apache Avro -->
         <dependency>
             <groupId>org.apache.avro</groupId>
             <artifactId>avro</artifactId>
-            <version>${apache.avro.version}</version>
+            <version>1.8.1</version>
         </dependency>
 
-        <!-- Apache Kafka -->
         <dependency>
             <groupId>org.apache.kafka</groupId>
             <artifactId>kafka_2.11</artifactId>
+            <version>0.8.2.2</version>
         </dependency>
 
-        <!-- Bijection -->
-
-
-
-
-        <!-- Scala util -->
         <dependency>
             <groupId>com.metamx</groupId>
             <artifactId>scala-util_2.12</artifactId>
@@ -96,6 +77,12 @@
             <groupId>org.apache.kafka</groupId>
             <artifactId>kafka-streams</artifactId>
             <version>2.4.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.twitter</groupId>
+            <artifactId>bijection-avro_2.11</artifactId>
+            <version>0.9.5</version>
         </dependency>
 
     </dependencies>

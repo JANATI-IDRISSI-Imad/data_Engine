@@ -23,8 +23,8 @@ public class Producer {
             ObjectMapper mapper = new ObjectMapper().setVisibility(JsonMethod.FIELD, JsonAutoDetect.Visibility.ANY);
             Properties props = new Properties();
             props.put("bootstrap.servers","localhost:9092");
-            props.put("key.serializer" , "org.apache.kafka.common.serialization.StringSerializer");
-            props.put("value.serializer" , "org.apache.kafka.common.serialization.StringSerializer");
+            props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+            props.put("value.serializer", "org.apache.kafka.common.serialization.ByteArraySerializer");
             KafkaProducer<String, String> producer = new KafkaProducer<String, String>(props);
 
             Faker faker = new Faker();
@@ -33,7 +33,7 @@ public class Producer {
                 Person person=new Person();
                 String jsonPerson = mapper.writeValueAsString(person);
                 System.out.println(jsonPerson);
-                ProducerRecord<String, String> record = new ProducerRecord<String, String>("topic" , jsonPerson);
+                ProducerRecord<String, String> record = new ProducerRecord<String, String>("test" , jsonPerson);
                 list.add(person);
                 producer.send(record);
             }
