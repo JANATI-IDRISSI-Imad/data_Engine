@@ -1,0 +1,14 @@
+{
+  "type": "record",
+  "name": "vaccinateSideEffects",
+  "fields": [
+    {"name": "id", "type": "string"},
+    {"name": "firstName", "type": "string"},
+    {"name": "lastName", "type": "string"},
+    {"name": "date", "type": "string"},
+    {"name": "vaccine", "type": "string"},
+    {"name": "sideEffectName", "type": "string"},
+    {"name": "sideEffectCode", "type": "string"}
+  ]
+}
+}
