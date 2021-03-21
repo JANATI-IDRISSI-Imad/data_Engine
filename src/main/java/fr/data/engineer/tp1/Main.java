@@ -9,7 +9,7 @@ public class Main {
         ToJSON toJSON=new ToJSON();
         Producer kafkaProducer=new Producer();
         //toJSON.mapper();
-        kafkaProducer.send();
+        toJSON.mapper();
     }
     public static void main(String[] args) {
         new Main();

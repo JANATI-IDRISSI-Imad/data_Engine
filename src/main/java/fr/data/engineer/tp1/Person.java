@@ -7,6 +7,7 @@ public class Person {
     String lastName;
     String date;
     String state;
+    private int age;
 
     public  Person(){
         Faker faker = new Faker();
@@ -14,6 +15,7 @@ public class Person {
         this.lastName = faker.name().lastName();
         this.date = faker.date().birthday().toString();
         this.state = faker.address().stateAbbr();
+        this.age=faker.number().numberBetween(50,60);
     }
 
     public String getFirstName() {
@@ -48,10 +50,19 @@ public class Person {
         this.state = state;
     }
 
-    public Person(String firstName, String lastName, String date, String state) {
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public Person(String firstName, String lastName, String date, String state, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.date = date;
         this.state = state;
+        this.age = age;
     }
 }
